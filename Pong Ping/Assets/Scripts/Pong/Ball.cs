@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    private ScoreUIController UIController;
+
     [SerializeField] private float speed = 5f;
     
     private Rigidbody2D ballRb;
-
     private PongGameManager pongManager;
+
+    void Awake()
+    {
+        UIController = FindObjectOfType<ScoreUIController>();
+    }
 
     void Start()
     {
@@ -26,14 +32,30 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("BottomWall"))
         {
-            pongManager.enemyScore++;
-            pongManager.enemyScoreText.text = pongManager.enemyScore.ToString();
+            EnemyScores();
+            
+            UIController.ShowPointsOnScreen();              // * Shows the points on the screen
+            UIController.Invoke("HidePointsOnScreen", 2f);  // * After 2 seconds, calls the function to hide the score
         }
 
         if (other.gameObject.CompareTag("TopWall"))
         {
-            pongManager.playerScore++;
-            pongManager.playerScoreText.text = pongManager.playerScore.ToString();
+            PlayerScores();
+
+            UIController.ShowPointsOnScreen();              // * Shows the points on the screen
+            UIController.Invoke("HidePointsOnScreen", 2f);  // * After 2 seconds, calls the function to hide the score
         }
+    }
+
+    public void PlayerScores()
+    {
+        pongManager.playerScore++;
+        pongManager.playerScoreText.text = pongManager.playerScore.ToString();
+    }
+
+    public void EnemyScores()
+    {
+        pongManager.enemyScore++;
+        pongManager.enemyScoreText.text = pongManager.enemyScore.ToString();
     }
 }
