@@ -8,8 +8,12 @@ public class Ball : MonoBehaviour
     
     private Rigidbody2D ballRb;
 
+    private PongGameManager pongManager;
+
     void Start()
     {
+        pongManager = FindObjectOfType<PongGameManager>();
+
         ballRb = GetComponent<Rigidbody2D>();
 
         float speedX = Random.Range(0, 2) == 0 ? -1 : 1;
@@ -22,14 +26,14 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("BottomWall"))
         {
-           //TODO: point to the enemy through some future function in PongGameManager script
-            Debug.Log("Enemy scored 1 point");
+            pongManager.enemyScore++;
+            pongManager.enemyScoreText.text = pongManager.enemyScore.ToString();
         }
 
         if (other.gameObject.CompareTag("TopWall"))
         {
-           //TODO: point to you through some future function in PongGameManager script
-            Debug.Log("You scored 1 point");
+            pongManager.playerScore++;
+            pongManager.playerScoreText.text = pongManager.playerScore.ToString();
         }
     }
 }
