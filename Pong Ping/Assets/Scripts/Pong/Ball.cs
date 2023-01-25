@@ -17,4 +17,19 @@ public class Ball : MonoBehaviour
 
         ballRb.velocity = new Vector3(speed * speedX, speed * speedY, 0f);
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("BottomWall"))
+        {
+           //TODO: point to the enemy through some future function in PongGameManager script
+            Debug.Log("Enemy scored 1 point");
+        }
+
+        if (other.gameObject.CompareTag("TopWall"))
+        {
+           //TODO: point to you through some future function in PongGameManager script
+            Debug.Log("You scored 1 point");
+        }
+    }
 }
