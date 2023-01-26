@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private ScoreUIController UIController;
-
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 7f;
     
+    private ScoreUIController UIController;    
     private Rigidbody2D ballRb;
     private PongGameManager pongManager;
+
+    private Vector3 startPosition;
 
     void Awake()
     {
@@ -19,20 +20,31 @@ public class Ball : MonoBehaviour
     void Start()
     {
         pongManager = FindObjectOfType<PongGameManager>();
-
         ballRb = GetComponent<Rigidbody2D>();
 
+        Launch();
+    }
+
+    private void Launch()
+    {
         float speedX = Random.Range(0, 2) == 0 ? -1 : 1;
         float speedY = Random.Range(0, 2) == 0 ? -1 : 1;
 
         ballRb.velocity = new Vector3(speed * speedX, speed * speedY, 0f);
     }
 
+    public void ResetPos()
+    {
+        ballRb.velocity = Vector2.zero;
+        transform.position = startPosition;
+        Launch();
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("BottomWall"))
         {
-            EnemyScores();
+            pongManager.EnemyScores();
             
             UIController.ShowPointsOnScreen();              // * Shows the points on the screen
             UIController.Invoke("HidePointsOnScreen", 2f);  // * After 2 seconds, calls the function to hide the score
@@ -40,22 +52,10 @@ public class Ball : MonoBehaviour
 
         if (other.gameObject.CompareTag("TopWall"))
         {
-            PlayerScores();
+            pongManager.PlayerScores();
 
             UIController.ShowPointsOnScreen();              // * Shows the points on the screen
             UIController.Invoke("HidePointsOnScreen", 2f);  // * After 2 seconds, calls the function to hide the score
         }
-    }
-
-    public void PlayerScores()
-    {
-        pongManager.playerScore++;
-        pongManager.playerScoreText.text = pongManager.playerScore.ToString();
-    }
-
-    public void EnemyScores()
-    {
-        pongManager.enemyScore++;
-        pongManager.enemyScoreText.text = pongManager.enemyScore.ToString();
     }
 }

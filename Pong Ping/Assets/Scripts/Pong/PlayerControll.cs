@@ -7,11 +7,15 @@ public class PlayerControll : MonoBehaviour
     [SerializeField] private float speed = 5f;
     
     private Vector2 movement;
-    private Rigidbody2D playerRb;
-    
-    void Awake()
+    public Rigidbody2D playerRb;
+
+    private Vector3 startPosition;
+
+    public bool isPlayer1;
+
+    void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
+        startPosition = transform.position;
     }
 
     void Update()
@@ -26,6 +30,19 @@ public class PlayerControll : MonoBehaviour
 
     private void HandleInput()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
+        if (isPlayer1)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+        }
+        else
+        {
+            movement.x = Input.GetAxisRaw("Horizontal2");
+        }
+    }
+
+    public void ResetPos()
+    {
+        playerRb.velocity = Vector2.zero;
+        transform.position = startPosition;
     }
 }
