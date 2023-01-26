@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    
 
-    void Update()
+    public void NewGame(string lvlName)
     {
-        
+        SceneManager.LoadScene(lvlName);
     }
 }
