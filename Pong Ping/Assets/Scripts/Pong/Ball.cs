@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     private ScoreUIController UIController;    
     private Rigidbody2D ballRb;
     private PongGameManager pongManager;
+    private PongMenuController pongMenuController;
 
     private Vector3 startPosition;
 
@@ -19,18 +20,27 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
+        pongMenuController = FindObjectOfType<PongMenuController>();
         pongManager = FindObjectOfType<PongGameManager>();
         ballRb = GetComponent<Rigidbody2D>();
 
         Launch();
     }
 
-    private void Launch()
+    public void Launch()
     {
-        float speedX = Random.Range(0, 2) == 0 ? -1 : 1;
-        float speedY = Random.Range(0, 2) == 0 ? -1 : 1;
+        if (pongMenuController.isPaused == false)
+        {
+            float speedX = Random.Range(0, 2) == 0 ? -1 : 1;
+            float speedY = Random.Range(0, 2) == 0 ? -1 : 1;
+            
+            ballRb.velocity = new Vector3(speed * speedX, speed * speedY, 0f);
+        }
+        else
+        {
+            return;
+        }
 
-        ballRb.velocity = new Vector3(speed * speedX, speed * speedY, 0f);
     }
 
     public void ResetPos()

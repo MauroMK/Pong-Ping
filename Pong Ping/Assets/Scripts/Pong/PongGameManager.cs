@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class PongGameManager : MonoBehaviour
 {
     [Header("Game")]
@@ -38,5 +38,10 @@ public class PongGameManager : MonoBehaviour
         ball.GetComponent<Ball>().ResetPos();
         playerPaddle.GetComponent<PlayerControll>().ResetPos();
         enemyPaddle.GetComponent<PlayerControll>().ResetPos();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
