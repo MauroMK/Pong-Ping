@@ -79,5 +79,13 @@ public class MenuController : MonoBehaviour
         SettingsMenu.interactable = false;
         SettingsMenu.blocksRaycasts = false;
     }
+
+    //* Quit button
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
     
 }
