@@ -9,17 +9,30 @@ public class MenuController : MonoBehaviour
 
     public CanvasGroup MainMenuPanel;
     public CanvasGroup GameSelectionPanel;
+    public CanvasGroup SettingsMenu;
 
-    public void ToTheGameSelection()
+    public void ToGameSelection()
     {
         HideMainMenu();
-        Invoke("ShowGameSelection", 1);
+        Invoke("ShowGameSelection", 0.5f);
     }
 
-    public void ToTheMainMenu()
+    public void ToMainMenuFromGame()
     {
         HideGameSelection();
-        Invoke("ShowMainMenu", 1f);
+        Invoke("ShowMainMenu", 0.5f);
+    }
+
+    public void ToMainMenuFromSettings()
+    {
+        HideSettingsMenu();
+        Invoke("ShowMainMenu", 0.5f);
+    }
+
+    public void ToSettingsMenu()
+    {
+        HideMainMenu();
+        Invoke("ShowSettingsMenu", 0.5f);
     }
 
     //* Main Menu
@@ -50,6 +63,21 @@ public class MenuController : MonoBehaviour
         LeanTween.alphaCanvas(GameSelectionPanel, 0, fadeSpeed);
         GameSelectionPanel.interactable = false;
         GameSelectionPanel.blocksRaycasts = false;
+    }
+
+    //* Settings Menu
+    private void ShowSettingsMenu()
+    {
+        LeanTween.alphaCanvas(SettingsMenu, 1, fadeSpeed);
+        SettingsMenu.interactable = true;
+        SettingsMenu.blocksRaycasts = true;
+    }
+
+    private void HideSettingsMenu()
+    {
+        LeanTween.alphaCanvas(SettingsMenu, 0, fadeSpeed);
+        SettingsMenu.interactable = false;
+        SettingsMenu.blocksRaycasts = false;
     }
     
 }
