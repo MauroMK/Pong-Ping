@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - TopWall
   - BottomWall
+  - EnemyShip
   layers:
   - Default
   - TransparentFX

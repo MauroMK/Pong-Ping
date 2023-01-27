@@ -6,7 +6,7 @@ public class PlayerControll : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     
-    private Vector2 movement;
+    public Vector2 movement;
     public Rigidbody2D playerRb;
 
     private Vector3 startPosition;
@@ -28,7 +28,7 @@ public class PlayerControll : MonoBehaviour
         playerRb.MovePosition(playerRb.position + movement * speed * Time.fixedDeltaTime);
     }
 
-    private void HandleInput()
+    protected virtual void HandleInput()
     {
         if (isPlayer1)
         {

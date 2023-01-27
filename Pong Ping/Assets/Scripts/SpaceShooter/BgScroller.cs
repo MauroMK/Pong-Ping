@@ -13,6 +13,7 @@ public class BgScroller : MonoBehaviour
 
         if (transform.position.y <= -borderY)
         {
+            //* If the position of the background reaches the specified Y position, the background will move to the new position
             transform.position = new Vector3(transform.position.x, borderY);
         }
     }
