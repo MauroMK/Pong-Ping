@@ -8,6 +8,9 @@ TagManager:
   - TopWall
   - BottomWall
   - EnemyShip
+  - Bullet
+  - AllyBullet
+  - Wall
   layers:
   - Default
   - TransparentFX
