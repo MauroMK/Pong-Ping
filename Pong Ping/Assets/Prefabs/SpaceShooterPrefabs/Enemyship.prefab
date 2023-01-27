@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3672410921047846275}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0.00000058114523}
+  m_LocalRotation: {x: -0, y: -0, z: 0.000001117587, w: -1}
   m_LocalPosition: {x: 0, y: -0.098000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3672410922904055069}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 360}
 --- !u!1 &3672410922904055075
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3672410922904055074}
   - component: {fileID: 9179824420619098386}
   - component: {fileID: 1924727091120979996}
+  - component: {fileID: 8806719884500075209}
   m_Layer: 0
   m_Name: Enemyship
   m_TagString: EnemyShip
@@ -165,3 +166,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8806719884500075209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3672410922904055075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad6edf6b5fd2c4488504ff9c0a862f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrel: {fileID: 3672410921047846274}
+  bulletPrefab: {fileID: 6286938217685757562, guid: a310d3b09e222c041ba265064c8099a0, type: 3}
+  startTimeBtwShots: 3

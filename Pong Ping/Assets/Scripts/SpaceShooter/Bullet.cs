@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletSpeed;
+    [SerializeField] protected float bulletSpeed;
+    
+    public Vector2 direction2D;
+    protected float deadZoneY = 6f;
 
-    private float deadZoneY = 6f;
-
-    void Update()
+    protected virtual void Update()
     {
-        transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
+        transform.Translate(direction2D * bulletSpeed * Time.deltaTime);
 
         if (transform.position.y >= deadZoneY)
         {
@@ -18,7 +19,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("EnemyShip"))
         {
