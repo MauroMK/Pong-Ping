@@ -6,19 +6,21 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed;
 
+    private float deadZoneY = 6f;
+
     void Update()
     {
-        transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
-    }
+        transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Wall"))
+        if (transform.position.y >= deadZoneY)
         {
             Destroy(this.gameObject);
         }
+    }
 
-        if(other.gameObject.CompareTag("EnemyShip"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("EnemyShip"))
         {
             Destroy(other.gameObject);
             Destroy(this.gameObject);
