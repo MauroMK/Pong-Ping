@@ -6,6 +6,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class PongGameManager : MonoBehaviour
 {
+    #region Variables
+
     [Header("Game")]
     [SerializeField] private GameObject ball;
     [SerializeField] private GameObject playerPaddle;
@@ -18,6 +20,8 @@ public class PongGameManager : MonoBehaviour
     [Header("Text Score")]
     public TMP_Text playerScoreText;
     public TMP_Text enemyScoreText;
+
+    #endregion
 
     public void PlayerScores()
     {
