@@ -43,9 +43,4 @@ public class PongGameManager : MonoBehaviour
         playerPaddle.GetComponent<PlayerControll>().ResetPos();
         enemyPaddle.GetComponent<PlayerControll>().ResetPos();
     }
-
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
 }
