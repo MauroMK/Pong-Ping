@@ -1285,12 +1285,12 @@ GameObject:
   - component: {fileID: 952231389}
   - component: {fileID: 952231388}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: PauseMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!225 &952231388
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1299,9 +1299,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952231387}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &952231389
 MonoBehaviour:
@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73bcbdc49e63db489d57e7f2f7b626a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 952231388}
+  pausePanel: {fileID: 952231387}
   pauseButton: {fileID: 692066665}
   isPaused: 0
 --- !u!114 &1915727549

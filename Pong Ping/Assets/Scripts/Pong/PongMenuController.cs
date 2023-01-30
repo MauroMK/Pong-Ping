@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PongMenuController : MonoBehaviour
 {
-    public CanvasGroup pausePanel;
+    public GameObject pausePanel;
     public GameObject pauseButton;
 
     public bool isPaused;
@@ -19,19 +19,23 @@ public class PongMenuController : MonoBehaviour
     public void ShowPauseMenu()
     {
         isPaused = true;
-        LeanTween.alphaCanvas(pausePanel, 1, 1f);
+        Time.timeScale = 0;
+        /* LeanTween.alphaCanvas(pausePanel, 1, 1f);
         pausePanel.interactable = true;
-        pausePanel.blocksRaycasts = true;
+        pausePanel.blocksRaycasts = true; */
         pauseButton.SetActive(false);
+        pausePanel.SetActive(true);
     }
 
     public void HidePauseMenu()
     {
         isPaused = false;
-        LeanTween.alphaCanvas(pausePanel, 0, 1f);
+        Time.timeScale = 1;
+        /* LeanTween.alphaCanvas(pausePanel, 0, 1f);
         pausePanel.interactable = false;
         pausePanel.blocksRaycasts = false;
+        ballScript.Launch(); */
         pauseButton.SetActive(true);
-        ballScript.Launch();
+        pausePanel.SetActive(false);
     }
 }
