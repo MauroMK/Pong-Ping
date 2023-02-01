@@ -47,7 +47,7 @@ public class Ball : MonoBehaviour
     {
         ballRb.velocity = Vector2.zero;
         transform.position = startPosition;
-        Launch();
+        Invoke("Launch", 1f);
     }
 
     void OnCollisionEnter2D(Collision2D other)
