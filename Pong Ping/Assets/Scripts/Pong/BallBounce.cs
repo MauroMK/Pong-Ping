@@ -48,6 +48,7 @@ public class BallBounce : MonoBehaviour
             gameManager.EnemyScores();
             ballMovement.player1Start = true;           //* Verifies who starts the new round
             StartCoroutine(ballMovement.LaunchBall());  //* Starts the coroutine to restart the ball position and then throw her again
+            gameManager.ResetPosition();                //* Resets the position of the players
         }
 
         else if (other.gameObject.CompareTag("TopWall"))
@@ -55,6 +56,7 @@ public class BallBounce : MonoBehaviour
             gameManager.PlayerScores();
             ballMovement.player1Start = false;          //* Verifies who starts the new round
             StartCoroutine(ballMovement.LaunchBall());  //* Starts the coroutine to restart the ball position and then throw her again
+            gameManager.ResetPosition();                //* Resets the position of the players
         }
     }
 }
