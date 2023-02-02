@@ -27,20 +27,20 @@ public class PongGameManager : MonoBehaviour
     {
         playerScore++;
         playerScoreText.text = playerScore.ToString();
-        ResetPosition();
+        //ResetPosition();
     }
 
     public void EnemyScores()
     {
         enemyScore++;
         enemyScoreText.text = enemyScore.ToString();
-        ResetPosition();
+        //ResetPosition();
     }
 
-    public void ResetPosition()
+    /* public void ResetPosition()
     {
         ball.GetComponent<Ball>().ResetPos();
         playerPaddle.GetComponent<PlayerControll>().ResetPos();
         enemyPaddle.GetComponent<PlayerControll>().ResetPos();
-    }
+    } */
 }

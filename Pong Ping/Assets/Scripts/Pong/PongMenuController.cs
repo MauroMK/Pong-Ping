@@ -9,11 +9,9 @@ public class PongMenuController : MonoBehaviour
 
     public bool isPaused;
 
-    private Ball ballScript;
-
     void Start()
     {
-        ballScript = FindObjectOfType<Ball>();
+        
     }
 
     public void ShowPauseMenu()
