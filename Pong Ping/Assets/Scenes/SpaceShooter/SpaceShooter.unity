@@ -1493,9 +1493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fd30c3a55cfad48b0996cbcd93e7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab0: {fileID: 3672410922904055075, guid: 471a89e0289203449b05b96ae9effdda, type: 3}
-  enemyPrefab1: {fileID: 3672410922904055075, guid: 3a2480b48ccf1ce4ba035b47a5622a40, type: 3}
-  enemyPrefab2: {fileID: 3672410922904055075, guid: a900892f48373b749b369dd8a169accb, type: 3}
 --- !u!1 &1505041633
 GameObject:
   m_ObjectHideFlags: 0

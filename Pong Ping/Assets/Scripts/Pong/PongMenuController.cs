@@ -6,13 +6,9 @@ public class PongMenuController : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject pauseButton;
+    public GameObject gameOverPanel;
 
     public bool isPaused;
-
-    void Start()
-    {
-        
-    }
 
     public void ShowPauseMenu()
     {
@@ -35,5 +31,12 @@ public class PongMenuController : MonoBehaviour
         ballScript.Launch(); */
         pauseButton.SetActive(true);
         pausePanel.SetActive(false);
+    }
+
+    public void ShowGameOver()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
     }
 }
