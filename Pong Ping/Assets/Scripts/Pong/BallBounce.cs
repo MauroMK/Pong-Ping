@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallBounce : MonoBehaviour
 {
+    public GameObject hitSFX;
+
     private PongGameManager gameManager;
     private BallMovement ballMovement;
 
@@ -58,6 +60,8 @@ public class BallBounce : MonoBehaviour
             StartCoroutine(ballMovement.LaunchBall());  //* Starts the coroutine to restart the ball position and then throw her again
             gameManager.ResetPosition();                //* Resets the position of the players
         }
+
+        Instantiate(hitSFX, transform.position, transform.rotation); //* Throws the hit sound whanever the ball hit something
     }
 }
 
