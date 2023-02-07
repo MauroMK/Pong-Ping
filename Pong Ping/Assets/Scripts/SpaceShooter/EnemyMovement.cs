@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        LeanTween.moveLocalY(this.gameObject, -4f, 4f).setEaseInOutSine().setLoopPingPong();
+        LeanTween.moveLocalX(this.gameObject, 0, 2f).setEaseInOutSine().setLoopPingPong();
     }
 }

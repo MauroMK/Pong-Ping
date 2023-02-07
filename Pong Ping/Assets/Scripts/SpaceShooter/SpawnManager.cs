@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemiesPrefabs;
+
     [SerializeField] private GameObject buffPrefab;
 
     private float leftBorder = -2.3f;
@@ -22,7 +23,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject enemies = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        enemies.transform.position += Vector3.down * Random.Range(leftBorder, rightBorder);
+        GameObject enemies = Instantiate(enemiesPrefabs[Random.Range(0, enemiesPrefabs.Count)], transform.position, transform.rotation);
+        enemies.transform.position += Vector3.right * Random.Range(leftBorder, rightBorder);
     }
 }

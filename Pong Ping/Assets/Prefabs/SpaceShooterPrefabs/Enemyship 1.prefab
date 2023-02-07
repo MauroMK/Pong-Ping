@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 9179824420619098386}
   - component: {fileID: 1924727091120979996}
   - component: {fileID: 8806719884500075209}
-  - component: {fileID: -4095216135411451404}
+  - component: {fileID: -2882206701164233295}
   m_Layer: 0
-  m_Name: Enemyship
+  m_Name: Enemyship 1
   m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 383695791, guid: 6b3c60c42a5f18d4596bbf6202a1fbbb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.18474545, g: 0.9150943, b: 0.282078, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   barrel: {fileID: 3672410921047846274}
   bulletPrefab: {fileID: 6286938217685757562, guid: a310d3b09e222c041ba265064c8099a0, type: 3}
   startTimeBtwShots: 3
---- !u!114 &-4095216135411451404
+--- !u!114 &-2882206701164233295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
